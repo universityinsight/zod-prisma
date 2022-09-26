@@ -25,6 +25,7 @@ export const writeImportsForModel = (
 			moduleSpecifier: 'zod',
 		},
 	]
+	const importTypeList: ImportDeclarationStructure[] = []
 
 	if (config.imports) {
 		importList.push({
@@ -64,19 +65,18 @@ export const writeImportsForModel = (
 			importList.push({
 				kind: StructureKind.ImportDeclaration,
 				moduleSpecifier: './index',
-				namedImports: Array.from(
-					new Set(
-						filteredFields.flatMap((f) => [
-							`Complete${f.type}`,
-							relatedModelName(f.type),
-						])
-					)
-				),
+				namedImports: filteredFields.map((f) => relatedModelName(f.type)),
+			})
+			importTypeList.push({
+				kind: StructureKind.ImportDeclaration,
+				isTypeOnly: true,
+				moduleSpecifier: './index',
+				namedImports: filteredFields.map((f) => `Complete${f.type}`),
 			})
 		}
 	}
-
 	sourceFile.addImportDeclarations(importList)
+	sourceFile.addImportDeclarations(importTypeList)
 }
 
 export const writeTypeSpecificSchemas = (

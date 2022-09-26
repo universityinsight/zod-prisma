@@ -1,5 +1,6 @@
 import * as z from "zod"
-import { CompletePresentation, RelatedPresentationModel } from "./index"
+import { RelatedPresentationModel } from "./index"
+import type { CompletePresentation } from "./index"
 
 // Helper schema for JSON fields
 type Literal = boolean | number | string

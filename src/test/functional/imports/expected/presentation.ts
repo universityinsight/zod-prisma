@@ -1,5 +1,6 @@
 import * as z from "zod"
-import { CompleteSpreadsheet, RelatedSpreadsheetModel } from "./index"
+import { RelatedSpreadsheetModel } from "./index"
+import type { CompleteSpreadsheet } from "./index"
 
 export const PresentationModel = z.object({
   id: z.string(),

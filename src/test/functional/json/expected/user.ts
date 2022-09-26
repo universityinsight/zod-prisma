@@ -1,5 +1,6 @@
 import * as z from "zod"
-import { CompletePost, RelatedPostModel } from "./index"
+import { RelatedPostModel } from "./index"
+import type { CompletePost } from "./index"
 
 // Helper schema for JSON fields
 type Literal = boolean | number | string

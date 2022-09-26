@@ -1,5 +1,6 @@
 import * as z from "zod"
-import { CompleteUser, RelatedUserModel } from "./index"
+import { RelatedUserModel } from "./index"
+import type { CompleteUser } from "./index"
 
 export const PostModel = z.object({
   id: z.number().int(),

@@ -1,5 +1,6 @@
 import * as z from "zod"
-import { CompletePost, postSchema } from "./index"
+import { postSchema } from "./index"
+import type { CompletePost } from "./index"
 
 export const _userSchema = z.object({
   id: z.string(),
