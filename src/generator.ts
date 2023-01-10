@@ -45,7 +45,7 @@ export const writeImportsForModel = (
 		})
 	}
 
-	const enumFields = model.fields.filter((f) => f.kind === 'enum')
+	const enumFields = [...new Set(model.fields.filter((f) => f.kind === 'enum'))]
 	const relationFields = model.fields.filter((f) => f.kind === 'object')
 	const relativePath = path.relative(outputPath, clientPath)
 
