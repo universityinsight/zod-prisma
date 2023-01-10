@@ -176,7 +176,7 @@ const writeImportsForModel = (model, sourceFile, config, {
     });
   }
 
-  const enumFields = model.fields.filter(f => f.kind === 'enum');
+  const enumFields = [...new Set(model.fields.filter(f => f.kind === 'enum'))];
   const relationFields = model.fields.filter(f => f.kind === 'object');
   const relativePath = path__default["default"].relative(outputPath, clientPath);
 
