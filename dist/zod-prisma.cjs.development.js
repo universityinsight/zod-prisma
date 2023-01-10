@@ -185,7 +185,8 @@ const writeImportsForModel = (model, sourceFile, config, {
       kind: tsMorph.StructureKind.ImportDeclaration,
       isTypeOnly: enumFields.length === 0,
       moduleSpecifier: dotSlash(relativePath),
-      namedImports: enumFields.map(f => f.type)
+      namedImports: [...new Set(enumFields.map(f => f.type))] // @TODO we should probably warn if there is an existing importList entry with one of these in it already, or build this uniqueness into the addImportDeclarations function.  But I think it's more correct here because I'm guessing each structure pushed onto importList results in exactly one import statement, not merged ones.
+
     });
   }
 
