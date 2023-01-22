@@ -31,7 +31,7 @@
 		"build": "dts build --target node --format cjs --rollupTypes",
 		"lint": "tsc --noEmit && dts lint src --ignore-pattern src/test/functional",
 		"prepare": "echo husky install disabled so pnpm doesnt complain without yarn installed without migrating away from yarn",
-		"prepublish": "dts build --target node --format cjs --rollupTypes",
+		"prepublish": "echo dts build --target node --format cjs --rollupTypes disabled so pnpm doesnt complain",
 		"start": "dts watch",
 		"test": "dts test --maxWorkers=4 --verbose"
 	},
